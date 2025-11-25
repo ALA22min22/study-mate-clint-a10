@@ -70,7 +70,7 @@ const Header = () => {
                             <details className="dropdown">
                                 <summary className="flex justify-center items-center"><img className='border border-red-400 rounded-full w-[40px] h-[40px]' src={user.photoURL ? user.photoURL : user.photo} alt="" /></summary>
                                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 text-black font-semibold rounded-box z-1 w-52 p-2 shadow-sm">
-                                    <li><a>Profile</a></li>
+                                    <Link to={"/profile"}><li><a>Profile</a></li></Link>
                                     <li><a onClick={handleLogOut}>Logout</a></li>
                                 </ul>
                             </details>
