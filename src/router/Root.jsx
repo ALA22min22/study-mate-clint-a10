@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 
 const Root = () => {
     return (
-        <div>
+        <div className='my-0'>
             <Header></Header>
             <div className=''>
                 <Outlet></Outlet>
