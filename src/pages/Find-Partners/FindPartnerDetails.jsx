@@ -83,7 +83,7 @@ const FindPartnerDetails = () => {
             <div className='flex justify-center bg-white border border-gray-400 rounded p-3 my-15'>
                 <div>
                     <h3>ID: {_id}</h3>
-                    <div className='flex gap-8  '>
+                    <div className='flex flex-col md:flex-row lg:flex-row gap-8  '>
                         <div>
                             <img className='border border-amber-200 rounded w-[800px] h-[500px]' src={photo} alt="" />
                             <div className='flex justify-between items-center mt-4'>

@@ -50,20 +50,25 @@ const Header = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm text-black dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {MyLink}
+                        <input onChange={handleToggle} type="checkbox" className="toggle toggle-info" />
                     </ul>
                 </div>
-                <img className='w-[80px] rounded-full' src={logo} alt="" />
-                <a className="btn btn-ghost text-xl">StudyMate</a>
+                <div className='flex flex-col lg:flex-row items-center'>
+                    <img className='w-[80px] rounded-full ' src={logo} alt="" />
+                    <a className="btn btn-ghost text-xl ">StudyMate</a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu  menu-horizontal px-1">
                     {MyLink}
                 </ul>
             </div>
-            <div className="navbar-end gap-5  items-center">
-                <input onChange={handleToggle} type="checkbox" className="toggle toggle-info" />
+            <div className="navbar-end gap-5 items-center">
+                <div className='hidden md:block lg:block'>
+                    <input onChange={handleToggle} type="checkbox" className="toggle toggle-info " />
+                </div>
                 <div>
                     {
                         user ? <>

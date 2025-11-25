@@ -79,7 +79,7 @@ const FindPartners = () => {
 
             </div>
 
-            <div className='grid grid-cols-3 justify-center items-center gap-5 max-w-7xl mx-auto my-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5 max-w-7xl mx-auto my-8'>
                 {
                     findUser.map(data => <FindPartnerCard key={data._id} data={data}  ></FindPartnerCard>)
                 }

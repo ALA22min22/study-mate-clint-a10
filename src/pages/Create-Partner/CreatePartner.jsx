@@ -43,10 +43,12 @@ const CreatePartner = () => {
 
 
     return (
-        <div className='my-15 '>
+        <div className='mt-15'>
+            <h3 className='text-3xl font-bold text-[#6c5ebf] text-center'>CREATE YOUR OWN PROFILE</h3>
+            <div className='my-15 '>
             <form onSubmit={handleOnSubmit}>
-                <fieldset className='w-8/12 mx-auto border border-blue-600 rounded p-5 bg-blue-200'>
-                    <section className='flex gap-5 border border-blue-400 rounded p-3 mb-5 bg-blue-300'>
+                <fieldset className='w-8/12 mx-auto  rounded p-5 bg-blue-200 shadow-2xl'>
+                    <section className='flex flex-col md:flex-col lg:flex-row gap-5 border border-blue-400 rounded p-3 mb-5 bg-blue-300'>
                         {/* input */}
                         <div className='border border-gray-200 p-5 rounded bg-primary'>
                             {/* name */}
@@ -120,6 +122,7 @@ const CreatePartner = () => {
                 </fieldset>
             </form>
             <ToastContainer />
+        </div>
         </div>
     );
 };

@@ -5,7 +5,7 @@ const FindPartnerCard = ({ data }) => {
     
     return (
         <div>
-            <div className=' bg-blue-200 shadow-2xl rounded-tl-2xl rounded-br-2xl p-4 text-center w-[413px]  '>
+            <div className=' bg-blue-200 shadow-2xl rounded-tl-2xl rounded-br-2xl p-4 text-center   '>
                 <img className="rounded w-fit h-[171px]  mx-auto my-4" src={data.photo} alt="" />
                 <h2 className='text-3xl font-bold mb-2'>{data.name}</h2>
                 <h2 className='text-2xl font-semibold '>Subjects: {data.Subject}</h2>

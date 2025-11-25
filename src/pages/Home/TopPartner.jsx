@@ -6,7 +6,7 @@ const TopPartner = ({ topPartner }) => {
     // console.log(top)
     return (
         <div>
-            <div className='grid grid-cols-3 gap-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
                     top.map(partner => <>
                         <div key={partner._id} className=' bg-primary shadow-2xl rounded-tl-2xl rounded-br-2xl p-4 text-center '>
