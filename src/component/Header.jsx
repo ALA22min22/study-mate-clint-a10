@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const Header = () => {
     const { signOutClick, user } = use(AuthContext);
-    
+
     const MyLink = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/Find-Partners"}>Find Partners</NavLink></li>
@@ -32,14 +32,14 @@ const Header = () => {
             })
     }
 
-   const handleToggle = (e) => {
-    if(e.target.checked){
-        document.querySelector("html").setAttribute('data-theme', 'dark');
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            document.querySelector("html").setAttribute('data-theme', 'dark');
+        }
+        else {
+            document.querySelector("html").setAttribute('data-theme', 'light')
+        }
     }
-    else{
-        document.querySelector("html").setAttribute('data-theme', 'light' )
-    }
-   }
 
     return (
         <div className="navbar bg-blue-400 text-white shadow-sm">
@@ -62,12 +62,20 @@ const Header = () => {
                     {MyLink}
                 </ul>
             </div>
-            <div className="navbar-end gap-5 items-center">
-                <input onChange={handleToggle} type="checkbox"  className="toggle toggle-info" />
+            <div className="navbar-end gap-5  items-center">
+                <input onChange={handleToggle} type="checkbox" className="toggle toggle-info" />
                 <div>
                     {
-                        user? <img className='border border-red-400 rounded-full w-[40px] h-[40px]' src={user.photoURL? user.photoURL : user.photo } alt="" /> 
-                        : <img src="https://i.ibb.co.com/0yhqzYRg/icons8-profile-50.png" alt="" />
+                        user ? <>
+                            <details className="dropdown">
+                                <summary className="flex justify-center items-center"><img className='border border-red-400 rounded-full w-[40px] h-[40px]' src={user.photoURL ? user.photoURL : user.photo} alt="" /></summary>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 text-black font-semibold rounded-box z-1 w-52 p-2 shadow-sm">
+                                    <li><a>Profile</a></li>
+                                    <li><a onClick={handleLogOut}>Logout</a></li>
+                                </ul>
+                            </details>
+                        </>
+                            : <img src="https://i.ibb.co.com/0yhqzYRg/icons8-profile-50.png" alt="" />
                     }
                 </div>
                 {
