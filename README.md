@@ -78,7 +78,7 @@ Follow these steps to set up the project on your local machine:
 ---
 
 ## 🔗 Resources
-* **Live Site:** [studymate-link.web.app](sturdy-mate.firebaseapp.com/)
+* **Live Site:** [studymate-link.web.app](https://sturdy-mate.firebaseapp.com)
 * **React Docs:** [react.dev](https://react.dev/)
 * **MongoDB $inc Guide:** [Official Documentation](https://www.mongodb.com/docs/manual/reference/operator/update/inc/)
 
