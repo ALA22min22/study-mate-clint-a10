@@ -1,115 +1,86 @@
-# 🤝 Study Mate - Find Your Perfect Study Partner
+# 🎓 StudyMate — Find Your Perfect Study Partner
 
-![Study Mate Banner](https://i.ibb.co.com/jPJffPj8/sturdy-mate-web-app-1.png)
-**Study Mate** is a dedicated platform designed to help students find the ideal study partner. Whether you need help with a specific subject or want to collaborate on projects, Study Mate connects you with like-minded peers to make learning more effective and social.
+**StudyMate** is a MERN Stack web platform designed to help students connect and collaborate for better learning outcomes. It enables users to find study partners based on subjects, learning preferences, or nearby locations, making education more interactive, engaging, and goal-oriented.
+
+
+
+[Image of MERN stack architecture diagram]
+
 
 ### 🔗 Quick Links
-<a href="sturdy-mate.firebaseapp.com/" target="_blank"><img src="https://img.shields.io/badge/Live_Site-Visit_Now-2ea44f?style=for-the-badge&logo=vercel&logoColor=white" /></a>
-<a href="https://github.com/ALA22min22/study-mate-clint-a10.git" target="_blank"><img src="https://img.shields.io/badge/Server_Repo-GitHub-black?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="sturdy-mate.firebaseapp.com/" target="_blank"><img src="https://img.shields.io/badge/Live_Site-Visit_Now-2ea44f?style=for-the-badge&logo=netlify&logoColor=white" /></a>
+<a href="https://github.com/ALA22min22/study-mate-clint-a10.git" target="_blank"><img src="https://img.shields.io/badge/Server_API-Link-orange?style=for-the-badge&logo=vercel&logoColor=white" /></a>
 
 ---
 
-## ✨ Core Features
+## 🖼 Screenshot
+![StudyMate Homepage](https://i.ibb.co.com/jPJffPj8/sturdy-mate-web-app-1.png)
 
-* **🔐 Secure Authentication:** User registration and login protected by **Firebase** (Email/Password & Google Login).
-* **👤 User Profiles:** Create and customize profiles showcasing academic interests and study goals.
-* **🔍 Find Partners:** Browse or search for potential study partners based on subjects or location.
-* **📩 Connection Requests:** Send "Study Request" to connect with other students.
-* **🤝 Manage Connections:** Accept or reject received requests via a dedicated dashboard.
-* **📱 Responsive Design:** A seamless experience across Mobile, Tablet, and Desktop devices.
 
 ---
 
-🛠️ Technologies Used
-<div align="center"> <table border="1" cellspacing="0" cellpadding="10"> <thead> <tr align="center"> <th>Main Category</th> <th>Subcategory</th> <th colspan="6">Technologies / Tools</th> </tr> </thead> <tbody> <tr align="center"> <td rowspan="1"><b>Programming Languages</b></td> <td>-</td> <td><img src="https://skillicons.dev/icons?i=js" width="40">
+## ⚙️ Main Technologies
+* **Frontend:** React.js (Vite), Tailwind CSS, DaisyUI, Framer Motion
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (Atlas)
+* **Authentication:** Firebase Auth & JWT
+* **Data Fetching:** Axios
 
+---
 
-JavaScript</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td rowspan="6"><b>Web Development</b></td> <td>Core</td> <td><img src="https://skillicons.dev/icons?i=html" width="40">
-
-
-HTML</td> <td><img src="https://skillicons.dev/icons?i=css" width="40">
-
-
-CSS</td> <td><img src="https://skillicons.dev/icons?i=json" width="40">
-
-
-JSON</td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Styling</td> <td><img src="https://skillicons.dev/icons?i=tailwind" width="40">
-
-
-Tailwind</td> <td><img src="https://skillicons.dev/icons?i=bootstrap" width="40">
-
-
-DaisyUI</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Frontend Libs</td> <td><img src="https://skillicons.dev/icons?i=react" width="40">
-
-
-React.js</td> <td><img src="https://skillicons.dev/icons?i=vite" width="40">
-
-
-Vite</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Backend</td> <td><img src="https://skillicons.dev/icons?i=nodejs" width="40">
-
-
-Node.js</td> <td><img src="https://skillicons.dev/icons?i=express" width="40">
-
-
-Express.js</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Database</td> <td><img src="https://skillicons.dev/icons?i=mongodb" width="40">
-
-
-MongoDB</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Authentication</td> <td><img src="https://skillicons.dev/icons?i=firebase" width="40">
-
-
-Firebase</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td><b>Tools & Version Control</b></td> <td>-</td> <td><img src="https://skillicons.dev/icons?i=github" width="40">
-
-
-GitHub</td> <td><img src="https://skillicons.dev/icons?i=vscode" width="40">
-
-
-VS Code</td> <td><img src="https://skillicons.dev/icons?i=npm" width="40">
-
-
-NPM</td> <td></td> <td></td> <td></td> </tr> </tbody> </table> </div>
+## 🌟 Core Features
+* **🔐 Secure Authentication:** Seamless login/registration with Email/Password and **Google One-Click Login** via Firebase.
+* **🔍 Smart Partner Discovery:** A "Find Partners" page with **Server-side Search** by subject and **Sorting** by experience level.
+* **🤝 Real-time Connections:** Send partner requests that automatically increment the partner’s connection count using the MongoDB **$inc operator**.
+* **🛠️ Full CRUD Management:** Users can create their own study profiles and manage their sent requests (Update/Delete) via the "My Connections" dashboard.
+* **🌓 Theme Toggle:** Integrated **Dark and Light mode** for a comfortable user experience.
+* **📱 High Performance & Responsive:** Fully responsive layout with custom loading spinners and a creative 404 error page.
 
 ---
 
 ## 📦 Key Dependencies
+### Client Side:
+* `axios`: For efficient API calls.
+* `firebase`: For secure authentication.
+* `react-router-dom`: For SPA navigation and private routes.
+* `framer-motion`: For smooth UI animations.
+* `react-toastify` / `sweetalert2`: For interactive notifications.
 
-This project relies on the following major libraries:
-
-* **react-router-dom**: For smooth client-side navigation.
-* **axios**: For secure API communication.
-* **firebase**: For user authentication and data handling.
-* **@tanstack/react-query**: For efficient data fetching and caching.
-* **sweetalert2**: For beautiful alerts and confirmation popups.
-* **framer-motion**: For modern animations and transitions.
+### Server Side:
+* `express`: Web framework for Node.js.
+* `mongodb`: For flexible data storage.
+* `dotenv`: For securing environment variables.
+* `cors`: To manage cross-origin resource sharing.
 
 ---
 
-## 💻 How to Run Locally
+## 💻 Step-by-Step Guide to Run Locally
 
 Follow these steps to set up the project on your local machine:
 
 **1. Clone the repository:**
 > git clone https://github.com/ALA22min22/study-mate-clint-a10.git
 
-**2. Navigate to the project directory:**
-> cd study-mate-clint-a10
+**2. Setup Server:**
+* Navigate to the server folder: `cd server`
+* Install dependencies: `npm install`
+* Create a `.env` file and add:
+  > DB_USER=your_mongodb_username  
+  > DB_PASS=your_mongodb_password
+* Start the server: `npm start` (or `node index.js`)
 
-**3. Install dependencies:**
-> npm install
+**3. Setup Client:**
+* Navigate to the client folder: `cd client`
+* Install dependencies: `npm install`
+* Create a `.env.local` file and add your Firebase configurations.
+* Start the development server: `npm run dev`
 
-**4. Set up Environment Variables:**
-Create a `.env.local` file in the root folder and add your Firebase keys:
-> VITE_apiKey=your_firebase_api_key
-> VITE_authDomain=your_firebase_auth_domain
-> VITE_projectId=your_firebase_project_id
-> VITE_storageBucket=your_firebase_storage_bucket
-> VITE_messagingSenderId=your_firebase_messaging_sender_id
-> VITE_appId=your_firebase_app_id
+---
 
-**5. Run the development server:**
-> npm run dev
-
-**6. Open in Browser:**
-The app should now be running at http://localhost:5173
+## 🔗 Resources
+* **Live Site:** [studymate-link.web.app](sturdy-mate.firebaseapp.com/)
+* **React Docs:** [react.dev](https://react.dev/)
+* **MongoDB $inc Guide:** [Official Documentation](https://www.mongodb.com/docs/manual/reference/operator/update/inc/)
 
 ---
 
