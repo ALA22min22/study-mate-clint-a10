@@ -8,7 +8,7 @@
 
 
 ### 🔗 Quick Links
-<a href="sturdy-mate.firebaseapp.com" target="_blank"><img src="https://img.shields.io/badge/Live_Site-Visit_Now-2ea44f?style=for-the-badge&logo=netlify&logoColor=white" /></a>
+<a href="https://sturdy-mate.firebaseapp.com" target="_blank"><img src="https://img.shields.io/badge/Live_Site-Visit_Now-2ea44f?style=for-the-badge&logo=netlify&logoColor=white" /></a>
 <a href="https://github.com/ALA22min22/study-mate-clint-a10.git" target="_blank"><img src="https://img.shields.io/badge/Server_API-Link-orange?style=for-the-badge&logo=vercel&logoColor=white" /></a>
 
 ---
