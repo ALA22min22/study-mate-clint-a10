@@ -20,9 +20,53 @@
 
 ---
 
-## 🛠️ Technologies Used
+🛠️ Technologies Used
+<div align="center"> <table border="1" cellspacing="0" cellpadding="10"> <thead> <tr align="center"> <th>Main Category</th> <th>Subcategory</th> <th colspan="6">Technologies / Tools</th> </tr> </thead> <tbody> <tr align="center"> <td rowspan="1"><b>Programming Languages</b></td> <td>-</td> <td><img src="https://skillicons.dev/icons?i=js" width="40">
 
-<div align="center"><table border="1" cellspacing="0" cellpadding="10"><thead><tr align="center"><th>Main Category</th><th>Subcategory</th><th colspan="6">Technologies / Tools</th></tr></thead><tbody><tr align="center"><td rowspan="1"><b>Programming Languages</b></td><td>-</td><td><img src="https://skillicons.dev/icons?i=js" width="40"><br>JavaScript</td><td></td><td></td><td></td><td></td><td></td></tr><tr align="center"><td rowspan="4"><b>Web Development</b></td><td>Core</td><td><img src="https://skillicons.dev/icons?i=html" width="40"><br>HTML</td><td><img src="https://skillicons.dev/icons?i=css" width="40"><br>CSS</td><td><img src="https://skillicons.dev/icons?i=json" width="40"><br>JSON</td><td></td><td></td><td></td></tr><tr align="center"><td>Styling</td><td><img src="https://skillicons.dev/icons?i=tailwind" width="40"><br>Tailwind</td><td><img src="https://skillicons.dev/icons?i=bootstrap" width="40"><br>DaisyUI</td><td></td><td></td><td></td><td></td></tr><tr align="center"><td>Frontend Libs</td><td><img src="https://skillicons.dev/icons?i=react" width="40"><br>React.js</td><td><img src="https://skillicons.dev/icons?i=vite" width="40"><br>Vite</td><td></td><td></td><td></td><td></td></tr><tr align="center"><td>Authentication</td><td><img src="https://skillicons.dev/icons?i=firebase" width="40"><br>Firebase</td><td></td><td></td><td></td><td></td><td></td></tr><tr align="center"><td><b>Tools & Version Control</b></td><td>-</td><td><img src="https://skillicons.dev/icons?i=github" width="40"><br>GitHub</td><td><img src="https://skillicons.dev/icons?i=vscode" width="40"><br>VS Code</td><td><img src="https://skillicons.dev/icons?i=npm" width="40"><br>NPM</td><td></td><td></td><td></td></tr></tbody></table></div>
+
+JavaScript</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td rowspan="6"><b>Web Development</b></td> <td>Core</td> <td><img src="https://skillicons.dev/icons?i=html" width="40">
+
+
+HTML</td> <td><img src="https://skillicons.dev/icons?i=css" width="40">
+
+
+CSS</td> <td><img src="https://skillicons.dev/icons?i=json" width="40">
+
+
+JSON</td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Styling</td> <td><img src="https://skillicons.dev/icons?i=tailwind" width="40">
+
+
+Tailwind</td> <td><img src="https://skillicons.dev/icons?i=bootstrap" width="40">
+
+
+DaisyUI</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Frontend Libs</td> <td><img src="https://skillicons.dev/icons?i=react" width="40">
+
+
+React.js</td> <td><img src="https://skillicons.dev/icons?i=vite" width="40">
+
+
+Vite</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Backend</td> <td><img src="https://skillicons.dev/icons?i=nodejs" width="40">
+
+
+Node.js</td> <td><img src="https://skillicons.dev/icons?i=express" width="40">
+
+
+Express.js</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Database</td> <td><img src="https://skillicons.dev/icons?i=mongodb" width="40">
+
+
+MongoDB</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td>Authentication</td> <td><img src="https://skillicons.dev/icons?i=firebase" width="40">
+
+
+Firebase</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr align="center"> <td><b>Tools & Version Control</b></td> <td>-</td> <td><img src="https://skillicons.dev/icons?i=github" width="40">
+
+
+GitHub</td> <td><img src="https://skillicons.dev/icons?i=vscode" width="40">
+
+
+VS Code</td> <td><img src="https://skillicons.dev/icons?i=npm" width="40">
+
+
+NPM</td> <td></td> <td></td> <td></td> </tr> </tbody> </table> </div>
 
 ---
 
