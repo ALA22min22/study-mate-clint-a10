@@ -1,6 +1,6 @@
 # 🤝 Study Mate - Find Your Perfect Study Partner
 
-![Study Mate Banner](https://i.ibb.co.com/Hfp0Tbr0/sturdy-mate-web-app.png)
+![Study Mate Banner](https://i.ibb.co.com/jPJffPj8/sturdy-mate-web-app-1.png)
 **Study Mate** is a dedicated platform designed to help students find the ideal study partner. Whether you need help with a specific subject or want to collaborate on projects, Study Mate connects you with like-minded peers to make learning more effective and social.
 
 ### 🔗 Quick Links
