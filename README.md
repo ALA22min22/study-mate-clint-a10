@@ -4,7 +4,6 @@
 
 
 
-[Image of MERN stack architecture diagram]
 
 
 ### 🔗 Quick Links
