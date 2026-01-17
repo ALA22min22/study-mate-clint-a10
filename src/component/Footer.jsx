@@ -51,7 +51,7 @@ const Footer = () => {
                         <HashLink smooth to="/#how-work" className="link link-hover hover:text-blue-400">Terms of use</HashLink>
                     </div>
 
-                    {/* Contact Info */}
+                    {/* Contact Information */}
                     <div className='flex flex-col gap-2'>
                         <h6 className="footer-title text-white opacity-100">Contact Us</h6>
                         <div className='text-sm space-y-2'>
