@@ -30,7 +30,7 @@ const Update = () => {
 
         //Axios patch data:
         try {
-            await axios.patch(`http://localhost:3000/request/${oldData._id}`, newUpdateData)
+            await axios.patch(`https://study-mate-server-beta.vercel.app/request/${oldData._id}`, newUpdateData)
                 .then(update => {
                     console.log("After updateing the data", update);
                     if (update.data) {
@@ -48,9 +48,9 @@ const Update = () => {
 
 
     return (
-        <div className='mt-15'>
-            <h3 className='text-3xl font-bold text-[#6c5ebf] text-center'>UPDATE YOUR REQUEST PARTNER PROFILE</h3>
-            <div className='my-15 '>
+        <div className='my-16'>
+            <h3 className='text-4xl font-extrabold text-center my-16'>UPDATE YOUR REQUEST PARTNER PROFILE</h3>
+            <div className='mb-16 '>
                 <form onSubmit={handleUpdateSubmit} >
                     <fieldset className='w-8/12 mx-auto  rounded p-5 bg-red-200 shadow-2xl'>
                         <section className='flex flex-col md:flex-col lg:flex-row gap-5 border border-blue-400 rounded p-3 mb-5 bg-red-400'>
@@ -85,7 +85,7 @@ const Update = () => {
                                 <input type="number" name="PartnerCount" defaultValue={oldData.PartnerCount} readOnly className="input w-full " />
                             </div>
                             {/* select */}
-                            <div className='grid grid-cols-1 gap-5 border border-gray-200 p-5 pr-10 rounded bg-primary'>
+                            <div className='grid grid-cols-1 gap-5 border border-gray-200 p-5 pr-17 rounded bg-primary'>
                                 <div>
                                     <label className="label font-bold text-black">Subject</label>
                                     <select name="Subject" defaultValue={oldData.Subject} className='border' >

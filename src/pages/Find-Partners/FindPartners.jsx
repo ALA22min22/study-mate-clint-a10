@@ -12,7 +12,7 @@ const FindPartners = () => {
     // total user collection:
     // useEffect(() => {
     //     if (user?.email) {
-    //         fetch("http://localhost:3000/user")
+    //         fetch("https://study-mate-server-beta.vercel.app/user")
     //             .then(res => res.json())
     //             .then(data => {
     //                 console.log(data)
@@ -23,15 +23,15 @@ const FindPartners = () => {
 
     // sort By Exprence:
     useEffect(() => {
-        if (user?.email) {
+        
             const url = search.trim() !== ""
-                ? `http://localhost:3000/user?subject=${search}&sort=${sortOrder}`
-                : `http://localhost:3000/user?sort=${sortOrder}`;
+                ? `https://study-mate-server-beta.vercel.app/user?subject=${search}&sort=${sortOrder}`
+                : `https://study-mate-server-beta.vercel.app/user?sort=${sortOrder}`;
             axios.get(url)
                 .then(res => setFindUser(res.data))
                 .catch(error => console.error(error));
-        }
-    }, [search, sortOrder, user?.email])
+        
+    }, [search, sortOrder, ])
 
     // Clint-Side to apply sort /  Ascending and Descending order:-----------
     // const organizedData = [...findUser].sort((a, b) => {
@@ -51,7 +51,7 @@ const FindPartners = () => {
     return (
         <div>
 
-            <div className='flex justify-between items-center max-w-7xl mx-auto mt-15'>
+            <div id='findingPartner' className='flex justify-between items-center  mt-16'>
                 {/* DropDown */}
                 <div className="dropdown dropdown-right">
                     <div tabIndex={0} role="button" className="btn m-1">Sort By ➡️</div>
@@ -79,7 +79,7 @@ const FindPartners = () => {
 
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5 max-w-7xl mx-auto my-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8  my-16'>
                 {
                     findUser.map(data => <FindPartnerCard key={data._id} data={data}  ></FindPartnerCard>)
                 }

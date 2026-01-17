@@ -1,81 +1,131 @@
-import React, { use } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
+import { RiLoginCircleFill } from 'react-icons/ri';
+import { FcGoogle } from "react-icons/fc"; // Google Icon (Better than SVG path manually)
 
 const Login = () => {
-    const { googleLogin, signInFrom, setUser } = use(AuthContext);
+    const { googleLogin, signInFrom, setUser } = useContext(AuthContext); // use -> useContext
     const location = useLocation();
-    console.log(location);
     const navigate = useNavigate();
 
-  
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleDemoUser = (e) => {
+        e.preventDefault();
+        setEmail("akl@gmail.com");
+        setPassword("ALA22min");
+        toast.info("Demo Credentials Applied!");
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email, password);
-
         signInFrom(email, password)
             .then(result => {
-                const user = result.user;
-                setUser(user)
-                toast.success("Login Sucessful");
+                setUser(result.user)
+                toast.success("Login Successful");
                 setTimeout(()=> navigate(location.state ? location.state : "/"), 1500 )
-                
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                toast.error(`Login Faild:  ${errorCode} and ${errorMessage}`);
+                toast.error(`Login Failed: ${error.message}`);
             })
     }
 
     const handleGoogleSignIn = () => {
         googleLogin()
             .then(result => {
-                const user = result.user;
-                setUser(user)
-                toast.success("Login Sucessful");
+                setUser(result.user)
+                toast.success("Login Successful");
                 setTimeout(()=> navigate(location.state? location.state : "/"), 1500 )
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                toast.error(`Login Faild:  ${errorCode} and ${errorMessage}`);
+                toast.error(`Login Failed: ${error.message}`);
             })
     }
 
     return (
-        <div className="card mx-auto bg-white w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className="text-5xl text-center font-bold my-6">Login now!</h1>
-            <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                    <fieldset className="fieldset">
-                        <label className="label">Email</label>
-                        <input type="email" name='email' className="input w-full " placeholder="Email" />
-                        <label className="label">Password</label>
-                        <input type="password" name='password' className="input w-full" placeholder="Password" />
-                        <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn  bg-secondary text-white mt-4">Login</button>
-                    </fieldset>
-                </form>
+        <div className="min-h-screen flex justify-center items-center bg-gray-50 py-10">
+            <div className="card bg-base-100 w-full max-w-md shadow-xl border border-gray-100">
+                
+                <div className="card-body px-8 py-10">
+                    <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Welcome Back</h2>
+                    <p className="text-center text-gray-500 mb-6 text-sm">Please login to your account</p>
 
-                {/* Google */}
-                <button onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
-                    <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
-                    Login with Google
-                </button>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Email Address</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                value={email} 
+                                onChange={(e)=> setEmail(e.target.value)} 
+                                placeholder="user@example.com" 
+                                className="input input-bordered w-full focus:outline-none focus:border-secondary" 
+                                required 
+                            />
+                        </div>
 
-                {
-                    <p className='mt-6'>Are You First Time Our Website? <Link state={location.state} to={"/auth/Register"} className='text-red-500'>Register</Link></p>
-                }
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Password</span>
+                            </label>
+                            <input 
+                                type="password" 
+                                value={password} 
+                                onChange={(e)=> setPassword(e.target.value)} 
+                                placeholder="Enter your password" 
+                                className="input input-bordered w-full focus:outline-none focus:border-secondary" 
+                                required 
+                            />
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover text-secondary ml-auto">Forgot password?</a>
+                            </label>
+                        </div>
+
+                        <button className="btn btn-secondary w-full text-white text-lg font-bold mt-2 shadow-md">
+                            Login
+                        </button>
+                    </form>
+
+                    {/* Professional Divider */}
+                    <div className="divider text-gray-400 text-sm my-6">OR LOGIN WITH</div>
+
+                    <div className="flex flex-col gap-3">
+                        {/* Google Button */}
+                        <button 
+                            onClick={handleGoogleSignIn} 
+                            className="btn btn-outline w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-medium normal-case flex items-center justify-center gap-2"
+                        >
+                            <FcGoogle className="text-xl" /> {/* React Icons ব্যবহার করা ক্লিন */}
+                            Continue with Google
+                        </button>
+
+                        {/* Demo Button */}
+                        <button 
+                            type='button' 
+                            onClick={handleDemoUser} 
+                            className='btn w-full bg-gray-800 hover:bg-gray-900 text-white normal-case flex items-center justify-center gap-2'
+                        > 
+                            <RiLoginCircleFill className='text-xl text-yellow-400'/> 
+                            Demo User Login
+                        </button>
+                    </div>
+
+                    <p className='text-center mt-8 text-sm text-gray-600'>
+                        Don't have an account? 
+                        <Link state={location.state} to={"/auth/Register"} className='text-secondary font-bold hover:underline ml-1'>
+                            Register
+                        </Link>
+                    </p>
+                </div>
             </div>
-            <ToastContainer />
+            <ToastContainer position="top-center" theme="colored" />
         </div>
     );
-    
 };
 
 export default Login;

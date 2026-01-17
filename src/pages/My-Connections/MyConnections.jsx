@@ -10,7 +10,7 @@ const MyConnections = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:3000/request?RequesterEmail=${user?.email}`)
+            fetch(`https://study-mate-server-beta.vercel.app/request?RequesterEmail=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log("after fatching the data", data);
@@ -31,7 +31,7 @@ const MyConnections = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/request/${id}`, {
+                fetch(`https://study-mate-server-beta.vercel.app/request/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -101,7 +101,7 @@ const MyConnections = () => {
                                     <button onClick={() => handleDelete(request._id)} className="btn border-red-200 text-red-500 btn-xs">delete<MdDeleteForever /> </button>
                                 </th>
                                 <th>
-                                    <Link to={`/update/${request._id}`}><button className="btn bg-secondary text-white btn-xs">Update</button></Link>
+                                    <Link to={`/dashboard/update/${request._id}`}><button className="btn bg-secondary text-white btn-xs">Update</button></Link>
                                 </th>
                             </tr>)
                         }

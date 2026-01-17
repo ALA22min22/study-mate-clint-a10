@@ -8,7 +8,6 @@ import Root from './router/root.jsx';
 import Home from './pages/Home/Home.jsx';
 import FindPartners from './pages/Find-Partners/FindPartners.jsx';
 import MyConnections from './pages/My-Connections/MyConnections.jsx';
-import Profile from './pages/Profile/Profile.jsx';
 import CreatePartner from './pages/Create-Partner/CreatePartner.jsx';
 import DetailsTP from './pages/Home/DetailsTP.jsx';
 import Authentication from './router/Authentication.jsx';
@@ -19,6 +18,11 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Provider/PrivateRoute.jsx';
 import FindPartnerDetails from './pages/Find-Partners/FindPartnerDetails.jsx';
 import Update from './pages/My-Connections/Update.jsx';
+import DashboardLayout from './pages/Dashboard/DashboardLayout.jsx';
+import Analytics from './pages/Dashboard/Analytics.jsx';
+import MyProfile from './pages/Dashboard/MyProfile.jsx';
+import About from './component/About.jsx';
+import PrivacyPolicy from './component/PrivacyPolicy.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,52 +36,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/top-partner-details/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/top-partners/${params.id}`),
-        element: <PrivateRoute>
-          <DetailsTP></DetailsTP>
-        </PrivateRoute>
+        loader: ({ params }) => fetch(`https://study-mate-server-beta.vercel.app/top-partners/${params.id}`),
+        element: 
+          <DetailsTP></DetailsTP>   
       },
       {
         path: "Find-Partners",
-        element: <PrivateRoute>
-          <FindPartners></FindPartners>
-        </PrivateRoute>
-
+        element: <FindPartners></FindPartners>
       },
       {
         path: "Find-Partners/:id",
-        // loader: ({ params }) => fetch(`http://localhost:3000/user/${params.id}`),
-        element: <PrivateRoute>
-          <FindPartnerDetails></FindPartnerDetails>
-        </PrivateRoute>
-      },
-
-
-      {
-        path: "Create-Partner",
-        element: <PrivateRoute>
-          <CreatePartner></CreatePartner>
-        </PrivateRoute>
+        // loader: ({ params }) => fetch(`https://study-mate-server-beta.vercel.app/user/${params.id}`),
+        element: <FindPartnerDetails></FindPartnerDetails>   
       },
       {
-        path: "My-Connections",
-        element: <PrivateRoute>
-          <MyConnections></MyConnections>
-        </PrivateRoute>
+        path: "about",
+        Component: About
       },
       {
-        path: "update/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/request/${params.id}`),
-        element: <PrivateRoute>
-          <Update></Update>
-        </PrivateRoute>
-      },
-      {
-        path: "profile",
-        element: <PrivateRoute>
-          <Profile></Profile>
-        </PrivateRoute>
+        path: "privacyPolicy",
+        element: <PrivateRoute> <PrivacyPolicy></PrivacyPolicy> </PrivateRoute>
       }
+
+
     ]
   },
   {
@@ -91,6 +72,39 @@ const router = createBrowserRouter([
       {
         path: "/auth/Register",
         Component: Register
+      }
+    ]
+  },
+  {
+    path: "dashboard",
+    element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
+    children: [
+      {
+        path: "profile",
+        Component: MyProfile
+      },
+      {
+        path: "Create-Partner",
+        element: <PrivateRoute>
+          <CreatePartner></CreatePartner>
+        </PrivateRoute>
+      },
+      {
+        path: "My-Connections",
+        element: 
+          <MyConnections></MyConnections>
+        
+      },
+      {
+        path: "update/:id",
+        loader: ({ params }) => fetch(`https://study-mate-server-beta.vercel.app/request/${params.id}`),
+        element:
+          <Update></Update>
+      
+      },
+      {
+        path: "analytics",
+        Component: Analytics
       }
     ]
   }

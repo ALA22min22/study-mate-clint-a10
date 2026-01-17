@@ -24,7 +24,7 @@ const CreatePartner = () => {
             name, photo, time, location, email, ratting, PartnerCount, Subject, StudyMode, ExperienceLevel
         };
 
-        fetch("http://localhost:3000/user", {
+        fetch("https://study-mate-server-beta.vercel.app/user", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -43,9 +43,9 @@ const CreatePartner = () => {
 
 
     return (
-        <div className='mt-15'>
-            <h3 className='text-3xl font-bold text-[#6c5ebf] text-center'>CREATE YOUR OWN PROFILE</h3>
-            <div className='my-15 '>
+        <div className='my-16'>
+            <h3 className='text-4xl font-extrabold text-center my-16'>CREATE YOUR OWN PROFILE</h3>
+            <div className=''>
             <form onSubmit={handleOnSubmit}>
                 <fieldset className='w-8/12 mx-auto  rounded p-5 bg-blue-200 shadow-2xl'>
                     <section className='flex flex-col md:flex-col lg:flex-row gap-5 border border-blue-400 rounded p-3 mb-5 bg-blue-300'>
@@ -80,7 +80,7 @@ const CreatePartner = () => {
                             <input type="number" name="PartnerCount" defaultValue={0} readOnly className="input w-full " />
                         </div>
                         {/* select */}
-                        <div className='grid grid-cols-1 gap-5 border border-gray-200 p-5 pr-10 rounded bg-primary'>
+                        <div className='grid grid-cols-1 gap-5 border border-gray-200 p-5 pr-17 rounded bg-primary'>
                             <div>
                                 <label className="label font-bold text-black">Subject</label>
                                 <select name="Subject" className='border' >

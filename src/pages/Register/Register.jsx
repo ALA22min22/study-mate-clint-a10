@@ -1,27 +1,25 @@
-import React, { use, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
-
+import { FcGoogle } from "react-icons/fc"; // Google Icon
 
 const Register = () => {
-    const { handleRegister, setUser, googleLogin } = use(AuthContext);
+    // 1. use -> useContext (Standard Practice)
+    const { handleRegister, setUser, googleLogin } = useContext(AuthContext);
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location);
-    
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const photo = e.target.photo.value;
-        const password = e.target.password.value;
-        console.log(name, email, photo, password);
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
 
-        //password validation:
+        // Password Validation Logic
         const upperCase = /^(?=.*[A-Z]).+$/;
         const lowerCase = /^(?=.*[a-z]).+$/;
         const passLength = /^.{6,}$/;
@@ -31,7 +29,7 @@ const Register = () => {
             return;
         }
         else if(!lowerCase.test(password)){
-            setPasswordError("Must contain at least one Lower letter.");
+            setPasswordError("Must contain at least one Lowercase letter.");
             return;
         }
         else if(!passLength.test(password)){
@@ -42,78 +40,127 @@ const Register = () => {
             setPasswordError("")
         }
 
-
-
-
         handleRegister(email, password)
             .then(result => {
                 const user = result.user;
-                setUser(user)
-                if(user){
-                    toast.success("Register Sucessful");
-                    setTimeout(()=> navigate(location.state? location.state : "/"), 1500);
-                }
-
+                setUser(user);
+                // আপডেট প্রোফাইল বা ডাটাবেস সেভ করার কাজ এখানে করতে পারেন
+                toast.success("Registration Successful!");
+                setTimeout(()=> navigate(location.state ? location.state : "/"), 1500);
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                toast.error(`Register Faild:  ${errorCode} and ${errorMessage}`);
+                toast.error(`Registration Failed: ${error.message}`);
             })
-
     }
 
     const handleGoogleSubmit = () => {
         googleLogin()
             .then(result => {
-                const user = result.user;
-                setUser(user)               
-                toast.success("Register Sucessful");
-                setTimeout(()=> navigate( location.state? location.state :"/"), 1500 )
-                
+                setUser(result.user);        
+                toast.success("Login Successful!");
+                setTimeout(()=> navigate(location.state ? location.state : "/"), 1500 )
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                toast.error(`Register Faild:  ${errorCode} and ${errorMessage}`);
+                toast.error(`Login Failed: ${error.message}`);
             })
     }
 
     return (
-        <div className="card mx-auto bg-white w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className="text-5xl text-center font-bold my-6">Register now!</h1>
-            <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                    <fieldset className="fieldset">
-                        {/* Name */}
-                        <label className="label">Name</label>
-                        <input type="text" name='name' className="input w-full" placeholder="Name" />
-                        {/* email */}
-                        <label className="label">Email</label>
-                        <input type="email" name='email' className="input w-full" placeholder="Email" />
-                        {/* Photo Url */}
-                        <label className="label">Photo Url</label>
-                        <input type="text" name='photo' className="input w-full" placeholder="Photo URL" />
-                        {/* Password */}
-                        <label className="label">Password</label>
-                        <input type="password" name='password' className="input w-full" placeholder="Password" />
-                        <p className='text-red-500'>{passwordError}</p>
+        <div className="min-h-screen flex justify-center items-center bg-gray-50 py-10">
+            <div className="card bg-base-100 w-full max-w-md shadow-xl border border-gray-100">
+                
+                <div className="card-body px-8 py-10">
+                    <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Create Account</h2>
+                    <p className="text-center text-gray-500 mb-6 text-sm">Get started with your free account</p>
 
-                        <button className="btn  bg-secondary text-white mt-4">Register</button>
-                    </fieldset>
-                </form>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Name Input */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Full Name</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                name='name' 
+                                placeholder="John Doe" 
+                                className="input input-bordered w-full focus:outline-none focus:border-secondary" 
+                                required
+                            />
+                        </div>
 
-                {/* Google */}
-                <button onClick={handleGoogleSubmit} className="btn bg-white text-black border-[#e5e5e5]">
-                    <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
-                    Login with Google
-                </button>
+                        {/* Email Input */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Email Address</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                name='email' 
+                                placeholder="user@example.com" 
+                                className="input input-bordered w-full focus:outline-none focus:border-secondary" 
+                                required
+                            />
+                        </div>
 
-                {
-                    <p className='mt-6'>Already have an account? <Link to={"/auth/login"} className='text-red-500'>Login</Link></p>
-                }
-                <ToastContainer />
+                        {/* Photo URL Input */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Photo URL</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                name='photo' 
+                                placeholder="https://example.com/photo.jpg" 
+                                className="input input-bordered w-full focus:outline-none focus:border-secondary" 
+                            />
+                        </div>
+
+                        {/* Password Input */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-semibold">Password</span>
+                            </label>
+                            <input 
+                                type="password" 
+                                name='password' 
+                                placeholder="Create a strong password" 
+                                className={`input input-bordered w-full focus:outline-none focus:border-secondary ${passwordError ? 'input-error' : ''}`} 
+                                required
+                            />
+                            {/* Error Message Styling */}
+                            {passwordError && (
+                                <label className="label">
+                                    <span className="label-text-alt text-red-500 font-medium">{passwordError}</span>
+                                </label>
+                            )}
+                        </div>
+
+                        <button className="btn btn-secondary w-full text-white text-lg font-bold mt-4 shadow-md">
+                            Register
+                        </button>
+                    </form>
+
+                    {/* Divider */}
+                    <div className="divider text-gray-400 text-sm my-4">OR REGISTER WITH</div>
+
+                    {/* Google Button */}
+                    <button 
+                        onClick={handleGoogleSubmit} 
+                        className="btn btn-outline w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-medium normal-case flex items-center justify-center gap-2"
+                    >
+                        <FcGoogle className="text-xl" />
+                        Continue with Google
+                    </button>
+
+                    <p className='text-center mt-6 text-sm text-gray-600'>
+                        Already have an account? 
+                        <Link to={"/auth/login"} className='text-secondary font-bold hover:underline ml-1'>
+                            Login
+                        </Link>
+                    </p>
+                </div>
             </div>
+            <ToastContainer position="top-center" theme="colored" />
         </div>
     );
 };
